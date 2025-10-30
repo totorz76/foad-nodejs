@@ -1,0 +1,25 @@
+{
+  "name": "foad-nodejs",
+  "version": "1.0.0",
+  "description": "Pour cette **FOAD** je vous propose de créer une **api** qui renvoie des **users** sous forme de **json**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/totorz76/foad-nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/totorz76/foad-nodejs/issues"
+  },
+  "homepage": "https://github.com/totorz76/foad-nodejs#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.19.2"
+  }
+}
