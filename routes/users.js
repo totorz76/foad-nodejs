@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/user");
+const User = require("../models/user",);
+const remplirBasedeDonnee =require("../models/faker");
+
+console.log("remplirBasedeDonnee => " + remplirBasedeDonnee );
+
 
 router.get("/", async (req, res) => {
   try {
@@ -29,8 +33,17 @@ router.post("/", async (req, res) => {
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(500).json({ error: err.message });
   }
 });
+router.post("/generer-users", async (req, res)=>{
+  try {
+    const {nombre}=req.body;
+    await remplirBasedeDonnee(nombre);
+    res.json({message : 'Users générés avec succès.'});
+  } catch (err){
+    res.status(500).json({error: err.message});
+  }
+})
 
 module.exports = router;

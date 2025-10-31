@@ -14,9 +14,10 @@ services:
 
   nodeapi-service:
     image: node:alpine
-    container_name: userapi
+    container_name: userapi-server
     volumes:
-      - ./:/app
+      - ./:/app:delagated
+      - ./node_modules:/app/node_modules
     working_dir: /app
     ports:
       - "8080:8080"

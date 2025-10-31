@@ -20,6 +20,7 @@
   "homepage": "https://github.com/totorz76/foad-nodejs#readme",
   "dependencies": {
     "express": "^5.1.0",
-    "mongoose": "^8.19.2"
+    "mongoose": "^8.19.2",
+    "@faker-js/faker": "^10.1.0"
   }
 }
