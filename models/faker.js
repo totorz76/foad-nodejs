@@ -12,26 +12,29 @@ const userSchema = new mongoose.Schema({
   avatar: { type: String, required: true },
 });
 
+const User = mongoose.models.User || mongoose.model("User", userSchema);
+
 const createUser = () => ({
   prenom: faker.lorem.lines(2),
-  nom : faker.lorem.lines(2),
-  age : faker.lorem.lines(2),
-  email : faker.lorem.lines(2),
-  rue : faker.lorem.lines(2),
-  ville : faker.lorem.lines(2),
-  pays : faker.lorem.lines(2),
+  nom: faker.lorem.lines(2),
+  age: faker.lorem.lines(2),
+  email: faker.lorem.lines(2),
+  rue: faker.lorem.lines(2),
+  ville: faker.lorem.lines(2),
+  pays: faker.lorem.lines(2),
+  avatar: faker.lorem.lines(2),
 });
 
 const generateUsers = (nombre) => Array.from({ length: nombre }, createUser);
 
 async function remplirBasedeDonnee(nombre = 10) {
-  const UserFaker = mongoose.model("UserFaker", userSchema);
+  // const User = mongoose.model("User", userSchema);
   try {
-    const notes = generateUsers(nombre);
-    await UserFaker.insertMany(users);
+    const users = generateUsers(nombre);
+    await User.insertMany(users);
     return true;
-  } catch(error) {
-    console.error('Erreur pour remplir la base de donnée: ', error);
+  } catch (error) {
+    console.error("Erreur pour remplir la base de donnée: ", error);
     throw error;
   }
 }
@@ -39,6 +42,6 @@ async function remplirBasedeDonnee(nombre = 10) {
 remplirBasedeDonnee();
 // module.exports=mongoose.model = mongoose.model('User', userSchema);
 module.exports = {
-  UserFaker : mongoose.model('UserFaker', userSchema),
-  remplirBasedeDonnee
+  User: mongoose.model("User", userSchema),
+  remplirBasedeDonnee,
 };

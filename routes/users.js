@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/user",);
-const remplirBasedeDonnee =require("../models/faker");
+// const User = require("../models/user",);
+const {Note ,remplirBasedeDonnee} =require("../models/faker");
 
 console.log("remplirBasedeDonnee => " + remplirBasedeDonnee );
 
